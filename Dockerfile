@@ -11,3 +11,6 @@ FROM scratch
 MAINTAINER James Mills <prologic@shortcircuitnet.au>
 
 ADD rootfs.tar.xz /
+
+RUN ports -u
+RUN cd /usr/ports/core/openssl; pkgmk -d; pkgadd -u -f openssl#*.pkg.tar.gz
